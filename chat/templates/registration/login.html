@@ -1,0 +1,35 @@
+{% extends 'chat/base.html' %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <div class="card auth-card">
+                    <div class="card-header">
+                        <h4 class="mb-0">
+                            <i class="fas fa-sign-in-alt me-2"></i>
+                            Login to Mitra
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="btn btn-primary w-100">
+                                <i class="fas fa-sign-in-alt me-2"></i>
+                                Login
+                            </button>
+                        </form>
+                        <p class="mt-4 text-center">
+                            Don't have an account? 
+                            <a href="{% url 'chat:register' %}" class="text-decoration-none">Register</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
